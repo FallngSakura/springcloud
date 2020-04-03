@@ -4,6 +4,7 @@ import club.fallngsakura.springcloud.entities.CommonResult;
 import club.fallngsakura.springcloud.entities.Payment;
 import club.fallngsakura.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,8 +36,8 @@ public class PaymentController
     }
 
 
-    @PostMapping("/payment/get/{id}")
-    public CommonResult getPaymentById(@PathVariable Long id)
+    @GetMapping("/payment/get/{id}")
+    public CommonResult<Payment> getPaymentById(@PathVariable Long id)
     {
         Payment payment = paymentService.getPaymentById(id);
         log.info("查询结果："+payment);
