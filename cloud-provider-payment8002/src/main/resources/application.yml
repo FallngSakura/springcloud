@@ -8,9 +8,9 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: org.gjt.mm.mysql.Driver
-    url: jdbc:mysql://*******:3306/db2020?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: root
-    password: *********
+    url: jdbc:mysql://121.40.230.136:3306/db2020?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: MISAKIRINNE
+    password: misaki123
 
 ---
 mybatis:
@@ -26,4 +26,7 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
-
+  instance:
+    # hostname:
+    instance-id: payment8002
+    prefer-ip-address: true
