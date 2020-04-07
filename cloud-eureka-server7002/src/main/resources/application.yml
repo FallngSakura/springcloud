@@ -4,6 +4,9 @@ server:
 
 ---
 eureka:
+  server:
+    enable-self-preservation: false # 关闭自我保护机制
+    eviction-interval-timer-in-ms: 3000
   instance:
     hostname: eureka7002.com   #eureka服务端的实例名称
   client:
