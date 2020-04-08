@@ -1,4 +1,4 @@
-package club.fallngsakura.springcloud.controller.controller;
+package club.fallngsakura.springcloud.controller;
 
 import club.fallngsakura.springcloud.entities.CommonResult;
 import club.fallngsakura.springcloud.entities.Payment;
