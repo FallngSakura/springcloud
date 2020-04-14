@@ -2,6 +2,7 @@ package clud.fallngsakura.springcloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 
 /**
  * PaymentHystris8001
@@ -10,10 +11,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @version 1.0
  **/
 @SpringBootApplication
-public class PaymentHystris8001 {
+@EnableCircuitBreaker
+public class PaymentHystrix8001 {
 
     public static void main(String[] args) {
-        SpringApplication.run(PaymentHystris8001.class,args);
+        SpringApplication.run(PaymentHystrix8001.class,args);
     }
 
 }
