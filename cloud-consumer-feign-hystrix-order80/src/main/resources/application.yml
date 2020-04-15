@@ -17,3 +17,8 @@ eureka:
 feign:
   hystrix:
     enabled: true # 开启hystrix
+
+---
+logging:
+  level:
+    com.netflix.hystrix: DEBUG

@@ -1,6 +1,7 @@
 package clud.fallngsakura.spingcloud.controller;
 
 import clud.fallngsakura.spingcloud.service.PaymentHystrixService;
+import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +20,7 @@ import javax.annotation.Resource;
  **/
 @RestController
 @Slf4j
+@DefaultProperties(defaultFallback = "defaultFallback")
 public class OrderHystrixController {
     @Resource
     private PaymentHystrixService paymentService;
@@ -27,28 +29,23 @@ public class OrderHystrixController {
     private String serverPort;
 
     @GetMapping("/consumer/payment/hystrix/ok/{id}")
-    public String paymentinfook(@PathVariable Integer id)
+    public String paymentInfoOK(@PathVariable Integer id)
     {
-        String result = paymentService.paymentinfook(id);
+        String result = paymentService.paymentInfoOK(id);
         log.info("{result:"+result+"}");
         return result;
     }
 
     @GetMapping("/consumer/payment/hystrix/timeout/{id}")
-    @HystrixCommand(fallbackMethod = "paymentInfoTimeOutFallBaclMethod",
-            commandProperties = {
-                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "1500")
-            }
-    )
+    @HystrixCommand
     public String paymentInfoTimeOut(@PathVariable Integer id)
     {
         String result = paymentService.paymentInfoTimeOut(id);
         log.info("{result:"+result+"}");
         return result;
     }
-    public String paymentInfoTimeOutFallBaclMethod(Integer id)
+    public String defaultFallback()
     {
-        return "线程池："+Thread.currentThread().getName()+"paymentInfoTimeOut"
-                +id+"\t"+"80 服务繁忙";
+        return "线程池："+Thread.currentThread().getName()+"\t 服务80繁忙";
     }
 }

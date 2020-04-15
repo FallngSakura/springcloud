@@ -26,9 +26,9 @@ public class PaymentController {
     private String serverPort;
     
     @GetMapping("/payment/hystrix/ok/{id}")
-    public String paymentinfook(@PathVariable Integer id)
+    public String paymentInfoOK(@PathVariable Integer id)
     {
-        String result = paymentService.paymentinfook(id);
+        String result = paymentService.paymentInfoOK(id);
         log.info("{result:"+result+"}");
         return result;
     }

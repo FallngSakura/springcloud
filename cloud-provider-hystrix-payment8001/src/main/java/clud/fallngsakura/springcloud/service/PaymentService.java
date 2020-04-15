@@ -19,7 +19,7 @@ public class PaymentService {
      * @param id
      * @return
      */
-    public String paymentinfook(Integer id)
+    public String paymentInfoOK(Integer id)
     {
         return "线程池："+Thread.currentThread().getName()+"paymentInfoOK"
                 +id+"\t"+"哈哈";

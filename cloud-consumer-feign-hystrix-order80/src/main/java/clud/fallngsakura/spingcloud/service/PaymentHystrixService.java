@@ -1,5 +1,6 @@
 package clud.fallngsakura.spingcloud.service;
 
+import clud.fallngsakura.spingcloud.service.impl.PaymentHystrixServiceImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @author MISAKI RINNE
  * @version 1.0
  **/
-@FeignClient(value = "CLOUD-PROVIDER-PAYMENT")
+@FeignClient(value = "CLOUD-PROVIDER-PAYMENT",fallback = PaymentHystrixServiceImpl.class)
 @Service
 public interface PaymentHystrixService {
 
@@ -29,6 +30,6 @@ public interface PaymentHystrixService {
      * @return
      */
     @GetMapping("/payment/hystrix/ok/{id}")
-    public String paymentinfook(@PathVariable("id")Integer id);
+    public String paymentInfoOK(@PathVariable("id")Integer id);
 
 }
