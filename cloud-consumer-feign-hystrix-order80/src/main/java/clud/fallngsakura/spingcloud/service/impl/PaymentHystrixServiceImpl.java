@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class PaymentHystrixServiceImpl implements PaymentHystrixService {
+    
     @Override
     public String paymentInfoTimeOut(Integer id) {
         return "PaymentHystrixServiceImpl : paymentInfoTimeOut 服务繁忙";

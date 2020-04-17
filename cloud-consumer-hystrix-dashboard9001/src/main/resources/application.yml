@@ -1,0 +1,20 @@
+server:
+  port: 9001
+
+#---
+#spring:
+#  application:
+#    name: cloud-provider-payment
+#---
+#eureka:
+#  client:
+#    # 表示是否将自己注册进EurekaServer 默认为:true
+#    register-with-eureka: true
+#    # 是否从EurekaServer抓取已有的注册信息，默认为:true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://eureka7001.com:7001/eureka
+#  instance:
+#    # hostname:
+#    instance-id: payment8001 # 显示服务名称
+#    prefer-ip-address: true # 显示服务ip地址

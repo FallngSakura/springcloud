@@ -3,7 +3,6 @@ package clud.fallngsakura.spingcloud.controller;
 import clud.fallngsakura.spingcloud.service.PaymentHystrixService;
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
- * OrderContrllor
+ * OrderHystrixController
  *
  * @author MISAKI RINNE
  * @version 1.0
@@ -48,4 +47,5 @@ public class OrderHystrixController {
     {
         return "线程池："+Thread.currentThread().getName()+"\t 服务80繁忙";
     }
+
 }
